@@ -4,10 +4,10 @@ import pandas as pd
 import requests
 from PIL import Image
 
-image=Image.open(r"C:\Users\skaff\OneDrive\Desktop\movie_recommender\back_ground.jpg")
-movies_dict=pickle.load(open(r'C:\Users\skaff\OneDrive\Desktop\movie_recommender\movies_dict.pkl','rb'))
+image=Image.open("back_ground.jpg")
+movies_dict=pickle.load(open('movies_dict.pkl','rb'))
 movies=pd.DataFrame(movies_dict)
-similarity=pickle.load(open(r'C:\Users\skaff\OneDrive\Desktop\movie_recommender\similarity.pkl','rb'))
+similarity=pickle.load(open('similarity.pkl','rb'))
 
 def fetch_poster(movie_id):
     response=requests.get("https://api.themoviedb.org/3/movie/{}?api_key=76d761d4c53535277af9b5fa866708d3&language=en-US".format(movie_id))
